@@ -1,0 +1,40 @@
+import { Meta, Story, Preview, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import ProductNote from './product_note';
+
+<Meta title="Components/ProductNote" component={ProductNote} />
+
+export const Template = (args) => <ProductNote {...args} />;
+
+# ProductNote
+
+Informs user about important product notes. Use this component if you need to communicate in a prominent way.
+
+<Canvas>
+   <Story
+      name="note"
+      args={{
+         type: 'note',
+         title: 'Example Note',
+         html: 'Example Contents',
+      }}
+   >
+      {(args) => <ProductNote {...args} />}
+   </Story>
+</Canvas>
+
+<Canvas>
+   <Story name="disclaimer">
+      <ProductNote type="disclaimer" title="Example Disclaimer" html="Example Contents" />
+   </Story>
+</Canvas>
+
+<Canvas>
+   <Story name="warning">
+      <ProductNote type="warning" title="Example Warning" html="Example Contents" />
+   </Story>
+</Canvas>
+
+`ProductNote` accepts the following props:
+
+<ArgsTable of={ProductNote} />

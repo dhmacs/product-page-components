@@ -1,0 +1,28 @@
+import { Meta, Story, Preview, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import ReviewStars from './review_stars';
+
+<Meta title="Components/Review Stars" component={ReviewStars} />
+
+export const Template = (args) => <ReviewStars {...args} />;
+
+# ReviewStars
+
+Displays review rating
+
+<Canvas>
+   <Story
+      name="default"
+      args={{
+         numReviews: 30,
+         average: 3.2,
+         starSize: 18,
+      }}
+   >
+      {(args) => <ReviewStars {...args} />}
+   </Story>
+</Canvas>
+
+`ReviewStars` accepts the following props:
+
+<ArgsTable of={ReviewStars} />

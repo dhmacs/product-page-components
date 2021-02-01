@@ -1,63 +1,65 @@
 {
-  "name": "@ifixit/product-page-components",
-  "version": "1.1.8",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
-    "@core-ds/icons": "^1.0.0",
-    "@core-ds/primitives": "^1.0.0",
-    "@ifixit/localize": "^1.0.0",
-    "@ifixit/toolbox": "^1.1.0",
-    "jest-styled-components": "^6.3.3",
-    "react-responsive": "^8.2.0",
-    "react-test-renderer": "^16.13.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build-examples": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0",
-    "styled-components": "^4.0.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@types/react": "^17.0.0",
-    "@types/styled-components": "^5.1.7",
-    "acorn": "^6.4.1",
-    "babel-preset-react-app": "^9.0.1",
-    "enzyme": "^3.10.0",
-    "eslint": "^6.8.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "^3.4.0",
-    "rimraf": "^3.0.0",
-    "styled-components": "^4.3.1",
-    "typescript": "^3.5.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "ie 11"
-    ]
-  },
-  "jest": {
-    "transformIgnorePatterns": [
-      "node_modules/(?!@ifixit/localize)"
-    ]
-  }
+   "name": "@ifixit/product-page-components",
+   "source": "src/index.js",
+   "license": "UNLICENSED",
+   "main": "dist/product-page-components.js",
+   "typings": "dist/index.d.ts",
+   "exports": "dist/product-page-components.modern.js",
+   "module": "dist/product-page-components.module.js",
+   "unpkg": "dist/product-page-components.umd.js",
+   "scripts": {
+      "build": "microbundle --jsx React.createElement",
+      "dev": "microbundle watch",
+      "storybook": "start-storybook -p 6006 -h localhost",
+      "build-storybook": "build-storybook",
+      "format": "prettier --write .",
+      "transform-svg": "npx @svgr/cli -d src/dropdowns/store_dropdown/flags src/dropdowns/store_dropdown/flags/svg",
+      "analyze-bundle": "source-map-explorer dist/product-page-components.js"
+   },
+   "dependencies": {
+      "@core-ds/icons": "^1.0.0",
+      "@core-ds/primitives": "^1.0.0",
+      "@ifixit/localize": "^1.0.0",
+      "@ifixit/toolbox": "^1.1.0",
+      "react-responsive": "^8.2.0",
+      "react-test-renderer": "^16.13.0"
+   },
+   "peerDependencies": {
+      "lodash": "4.17.20",
+      "react": ">=16",
+      "styled-components": ">=4"
+   },
+   "devDependencies": {
+      "@babel/core": "7.12.10",
+      "@storybook/addon-a11y": "6.1.15",
+      "@storybook/addon-actions": "6.1.15",
+      "@storybook/addon-console": "1.2.2",
+      "@storybook/addon-essentials": "6.1.15",
+      "@storybook/addon-links": "6.1.15",
+      "@storybook/react": "6.1.15",
+      "@svgr/cli": "5.5.0",
+      "@types/node": "14.14.22",
+      "@types/react": "17.0.0",
+      "@types/styled-components": "5.1.7",
+      "babel-loader": "8.2.2",
+      "husky": "4.3.8",
+      "jest-styled-components": "6.3.3",
+      "lint-staged": "10.5.3",
+      "lodash": "4.17.20",
+      "microbundle": "0.13.0",
+      "prettier": "2.2.1",
+      "react": "16.14.0",
+      "react-dom": "16.14.0",
+      "source-map-explorer": "2.5.2",
+      "styled-components": "5.2.1",
+      "typescript": "4.1.3"
+   },
+   "husky": {
+      "hooks": {
+         "pre-commit": "lint-staged"
+      }
+   },
+   "lint-staged": {
+      "*.{js,ts,tsx,css,md,mdx}": "prettier --write"
+   }
 }
