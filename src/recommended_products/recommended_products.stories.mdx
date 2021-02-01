@@ -1,0 +1,29 @@
+import { Meta, Story, Preview, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import RecommendedProducts from './recommended_products';
+
+import exampleProducts from './data/example_products.json';
+import exampleProductsLongTitles from './data/example_products_long_titles.json';
+import exampleProductsFloatingPointIssues from './data/example_products_floating_point_issues.json';
+
+<Meta title="Components/RecommendedProducts" component={RecommendedProducts} />
+
+# RecommendedProducts
+
+Displays review rating
+
+<Canvas>
+   <Story
+      name="default"
+      args={{
+         ...exampleProducts,
+         addToCart: (skus) => console.log('Add to Cart:', skus),
+      }}
+   >
+      {(args) => <RecommendedProducts {...args} />}
+   </Story>
+</Canvas>
+
+`RecommendedProducts` accepts the following props:
+
+<ArgsTable of={RecommendedProducts} />

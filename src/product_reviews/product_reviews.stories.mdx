@@ -1,0 +1,55 @@
+import { Meta, Story, Preview, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import ProductReviews from './product_reviews';
+import noReviewsData from './data/example_reviews_none.json';
+import reviewsData from './data/example_reviews.json';
+
+<Meta
+   title="Components/ProductReviews"
+   component={ProductReviews}
+   argTypes={{
+      productReviews: {
+         control: { type: 'object' },
+      },
+   }}
+/>
+
+# ProductReviews
+
+Displays review rating
+
+Example without reviews:
+
+<Canvas>
+   <Story
+      name="without reviews"
+      args={{
+         productReviews: noReviewsData,
+         langid: 'en',
+         itemCode: 'IF145-002-4',
+         reviewsLink: '/User/Reviews',
+      }}
+   >
+      {(args) => <ProductReviews {...args} />}
+   </Story>
+</Canvas>
+
+Example with reviews:
+
+<Canvas>
+   <Story
+      name="with reviews"
+      args={{
+         productReviews: reviewsData,
+         langid: 'en',
+         itemCode: 'IF145-002-4',
+         reviewsLink: '/User/Reviews',
+      }}
+   >
+      {(args) => <ProductReviews {...args} />}
+   </Story>
+</Canvas>
+
+`ProductReviews` accepts the following props:
+
+<ArgsTable of={ProductReviews} />
